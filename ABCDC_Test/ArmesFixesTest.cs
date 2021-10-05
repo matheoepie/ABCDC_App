@@ -14,8 +14,8 @@ namespace ABCDC_Test
         public void Les_Armes_Sont_Fixes_Elles_Ne_Changent_Pas_Sur_Une_Session()
         {
             var session = new Session();
-
-            var sessionSuivante = session.Suivante;
+            var sessionSuivante = session.Suivante();
+            
             Assert.Equals(sessionSuivante.armesDesJoueurs, session.armesDesJoueurs);
         }
     }

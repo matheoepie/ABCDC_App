@@ -10,7 +10,11 @@ namespace ABCDC_App
             //Session s = new Session();
             //s.Date = DateTime.Now;
 
+            //création de la liste des participants
             List<Person> persons = new List<Person>();
+
+            //création de la liste des adhérents
+            List<Person> members = new List<Person>();
 
             string option = "";
 

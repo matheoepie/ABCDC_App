@@ -6,10 +6,10 @@ namespace ABCDC_App
 {
     public class Session
     {
-        public string playerList
+        public string ListMatch
         {
-            get { return _playerlist; }
-            set { _playerlist = value; }
+            get { return _listMatch; }
+            set { _listMatch = value; }
         }
 
         public DateTime Date
@@ -24,8 +24,9 @@ namespace ABCDC_App
             set { _armesDesJoueurs = value; }
         }
 
-        private string _playerlist;
 
+        private string _listMatch;
+        
         private DateTime _date;
 
         private string _armesDesJoueurs;
