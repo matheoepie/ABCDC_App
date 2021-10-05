@@ -1,4 +1,7 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace ABCDC_App
 {
     public class Person
@@ -58,7 +61,6 @@ namespace ABCDC_App
         private string _armor;
 
         #endregion
-
 
         public Person()
         {
