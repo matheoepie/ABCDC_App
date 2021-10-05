@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using ABCDC_App;
 
 namespace ABCDC_Test
 {
@@ -12,8 +13,10 @@ namespace ABCDC_Test
         [Test]
         public void Les_Armes_Sont_Fixes_Elles_Ne_Changent_Pas_Sur_Une_Session()
         {
-            
-            //Assert.Equals();
+            var session = new Session();
+
+            var sessionSuivante = session.Suivante;
+            Assert.Equals(sessionSuivante.armesDesJoueurs, session.armesDesJoueurs);
         }
     }
 }
