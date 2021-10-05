@@ -15,7 +15,7 @@ namespace ABCDC_Test
         {
             var session = new Session();
 
-            var sessionSuivante = session.Suivante;
+            var sessionSuivante = session.Suivante();
             Assert.Equals(sessionSuivante.armesDesJoueurs, session.armesDesJoueurs);
         }
     }
