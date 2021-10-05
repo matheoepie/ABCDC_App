@@ -6,7 +6,7 @@ using ABCDC_Lib;
 
 namespace ABCDC_Test
 {
-    public class FetchDataExcelTest
+    public class ExcelTest
     {
 
         [SetUp]
@@ -19,7 +19,7 @@ namespace ABCDC_Test
         public void Add_User_In_Excel_File()
         {
 
-            List<Person> persons = AddExcelUser.AddUser();
+            List<Person> persons = ExcelMethods.AddUser();
             Assert.IsNotEmpty(persons);
             Assert.AreEqual(persons[0].LastName, "GROS");
         }
