@@ -9,19 +9,20 @@ namespace ABCDC_Test
     public class ExcelTest
     {
 
+        public List<Person> listAdherant{ get; set; }
+
         [SetUp]
         public void Setup()
         {
+            // Person p = new Person() { FirstName = "Lucas", LastName = "Reteau", Weight = 100, Armor="bite", Weapon = "epie"};
+            //this.listAdherant.Add(p);
         }
 
 
         [Test]
-        public void Add_User_In_Excel_File()
+        public void liste_adherant_nest_pas_vide()
         {
-
-            List<Person> persons = ExcelMethods.AddUser();
-            Assert.IsNotEmpty(persons);
-            Assert.AreEqual(persons[0].LastName, "GROS");
+            Assert.IsNotEmpty(this.listAdherant);
         }
      
     }
