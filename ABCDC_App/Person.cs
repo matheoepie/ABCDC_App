@@ -4,13 +4,8 @@ using System.Text;
 
 namespace ABCDC_App
 {
-    class Person
+    public class Person
     {
-        public override string ToString()
-        {
-            return "NOM: " + LastName + "Prenom: " + FirstName;
-        }
-
         #region Properties 
 
         public string FirstName
