@@ -20,7 +20,6 @@ namespace ABCDC_Test
             Person jm = new Person() { FirstName = "Jean-Michel", LastName = "GIRAUD", Weight = 79, BeginYear = 1987, Weapon = "Sabre", Armor = "Plaques" };
             Person theo = new Person() { FirstName = "Théophile", LastName = "PÂRIS", Weight = 102, BeginYear = 2003, Weapon = "Hallebarde", Armor = "Gambison" };
 
-
             this.listAdherant.Add(paul);
             this.listAdherant.Add(louis);
             this.listAdherant.Add(jm);
@@ -35,6 +34,7 @@ namespace ABCDC_Test
             Assert.IsNotEmpty(this.listAdherant);
         }
 
+
         [Test]
         public void premiere_et_derniere_personne_de_la_liste()
         {
@@ -44,11 +44,12 @@ namespace ABCDC_Test
             string premier_nom_de_liste_aderant = "GROS";
             string dernier_nom_de_liste_aderant = "PÂRIS";
 
-
-
             Assert.AreEqual(premiere_position_de_liste_aderant, premier_nom_de_liste_aderant);
             Assert.AreEqual(derniere_position_de_liste_aderant, dernier_nom_de_liste_aderant);
         }
+
+
+
 
     }
 }
