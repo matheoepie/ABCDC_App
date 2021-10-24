@@ -18,17 +18,32 @@ namespace ABCDC_App
             set { _date = value; }
         }
 
-        public string armesDesJoueurs
+        public List<String> weaponsPlayerList
         {
-            get { return _armesDesJoueurs; }
-            set { _armesDesJoueurs = value; }
+            get { return _weaponsPlayerList; }
+            set { _weaponsPlayerList = value; }
         }
+
+        public List<String> armorsPlayerList
+        {
+            get { return _armorsPlayerList; }
+            set { _armorsPlayerList = value; }
+        }
+
+
+
 
         private List<Person> _playerlist;
 
         private DateTime _date;
 
-        private string _armesDesJoueurs;
+        private List<String> _weaponsPlayerList;
+
+        private List<String> _armorsPlayerList;
+
+
+
+
 
 
         public Session Suivante()
