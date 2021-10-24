@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ABCDC_Lib\ABCDC_Lib.csproj" />
+  </ItemGroup>
+
 </Project>
