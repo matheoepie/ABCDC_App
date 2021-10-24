@@ -52,6 +52,21 @@ namespace ABCDC_App
 
 
 
+
+        public void addPlayer(Person person)
+        {
+            this.PlayersList.Add(person);
+        }
+
+
+
+        public void removePlayer(string firstname, string lastname)
+        {
+            this.PlayersList.RemoveAll(x => x.FirstName == firstname && x.LastName == lastname);
+        }
+
+
+
         public Session Suivante()
         {
             var sessionSuivante = new Session();
