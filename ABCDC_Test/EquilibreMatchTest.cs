@@ -7,23 +7,24 @@ namespace ABCDC_Test
 {
     class EquilibreMatchTest
     {
-        //créer la liste des adhérants
-        public List<Person> adherants { get; set; } = new List<Person>();
-
-        //créer la liste des particpants
-        public List<Person> participants { get; set; } = new List<Person>();
+        //Liste des joueurs
+        public List<Person> Participants { get; set; } = new List<Person>();
 
         //création des équipes
         public List<Person> Equipe1 { get; set; } = new List<Person>();
         public List<Person> Equipe2 { get; set; } = new List<Person>();
+
+        public Equilibre equilibre;
 
         [SetUp]
         public void Setup()
         {
             Person p = new Person();
 
-            //récupérer la liste des adhérants
-            this.adherants = p.GetListeExcel();
+            this.equilibre = new Equilibre();
+
+            //récupérer la liste des adhérants dans l'équipe 1
+            this.Participants = p.GetListeExcel();
 
             //créer un nouveau participant
             p.LastName = "RETEAU";
@@ -33,13 +34,24 @@ namespace ABCDC_Test
             p.Armor = "Mailles";
             p.Weapon = "Epee";
 
-            this.participants.Add(p);
+            //puis l'ajouter à l'équipe 2
+            this.Participants.Add(p);
+
         }
 
         [Test]
         public void Les_Equipes_Sont_Equilibrees_en_nombre()
         {
+            //Vérifier que les listes ne sont pas vides
+            Assert.IsNotEmpty(Equipe1);
+            Assert.IsNotEmpty(Equipe2);
 
+            (List<Person>, List<Person>) equipes = equilibre.EquilibreEnNombre(Participants);
+
+            Equipe1 = equipes.Item1;
+            Equipe2 = equipes.Item2;
+
+            Assert.AreEqual(Equipe1.Count, Equipe2.Count);
         }
 
         public void Les_Equipes_Sont_Equilibrees_en_poids()
