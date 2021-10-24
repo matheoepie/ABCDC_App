@@ -11,7 +11,7 @@ namespace ABCDC_Test
             var session = new Session();
 
             var sessionSuivante = session.Suivante();
-            Assert.Equals(sessionSuivante.weaponsPlayerList, session.weaponsPlayerList);
+            Assert.Equals(sessionSuivante.WeaponsPlayerList, session.WeaponsPlayerList);
         }
     }
 }

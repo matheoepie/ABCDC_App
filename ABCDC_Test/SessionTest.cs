@@ -39,18 +39,18 @@ namespace ABCDC_Test
         [Test]
         public void tous_les_joueurs_de_la_session_sont_inscrit()
         {
-            Session session = new Session() { weaponsPlayerList = this.listWeaponSession, armorsPlayerList = this.listArmorSession, Date = DateTime.Now, playerList = this.listJoueurSession };
+            Session session = new Session() { WeaponsPlayerList = this.listWeaponSession, ArmorsPlayerList = this.listArmorSession, Date = DateTime.Now, PlayersList = this.listJoueurSession };
 
             // Verrifier que les listes ne sont pas vide
-            Assert.IsNotEmpty(session.armorsPlayerList);
-            Assert.IsNotEmpty(session.weaponsPlayerList);
-            Assert.IsNotEmpty(session.playerList);
+            Assert.IsNotEmpty(session.ArmorsPlayerList);
+            Assert.IsNotEmpty(session.WeaponsPlayerList);
+            Assert.IsNotEmpty(session.PlayersList);
 
             // Verrifier que la premiere arme est bien egale a la premiere ligne du tableau excel
-            Assert.AreEqual(session.weaponsPlayerList[0].Name, "Hache 2M");
+            Assert.AreEqual(session.WeaponsPlayerList[0].Name, "Hache 2M");
 
             // Verifier que la permiere armure est bien egale a la premiere ligne du tableau excel
-            Assert.AreEqual(session.armorsPlayerList[0].Name, "Mailles");
+            Assert.AreEqual(session.ArmorsPlayerList[0].Name, "Mailles");
 
         }
 
@@ -60,30 +60,38 @@ namespace ABCDC_Test
         {
             // Creation de la session de jeu 
             Session session = new Session() {
-                weaponsPlayerList = this.listWeaponSession,
-                armorsPlayerList = this.listArmorSession,
+                WeaponsPlayerList = this.listWeaponSession,
+                ArmorsPlayerList = this.listArmorSession,
                 Date = DateTime.Now,
-                playerList = this.listJoueurSession,
-                partieList = new List<Partie>,
+                PlayersList = this.listJoueurSession,
+                PartiesList = new List<Partie>(),
             };
 
             // Création d'une nouvelle partie
-            Partie p1 = new Partie(session.playerList);
+            Partie p1 = new Partie(session);
+            session.PartiesList.Add(p1);
 
-            // Ajouter la partie dans la liste des partie de la sessions
-            session.partieList.Add(p1);
+
+            // Création du Hashage de la liste de joueurs pour la premiere partie
+            HashSet<Person> hashPlayersListP1 = new HashSet<Person>(p1.GetPlayers());
 
 
             // Suppréssion d'un joueur de la sessions
-            session.playerList.RemoveAll(x => x.LastName == "BLANC" && x.FirstName == "Louis");
+            session.PlayersList.RemoveAll(x => x.LastName == "BLANC" && x.FirstName == "Louis");
+
 
             // Création d'une seconde partie
-            Partie p2 = new Partie(session.playerList);
-            session.partieList.Add(p2);
+            Partie p2 = new Partie(session);
+            session.PartiesList.Add(p2);
+
+
+            // Création du Hashage de la liste de joueurs pour la deuxieme partie
+            HashSet<Person> hashPlayersListP2 = new HashSet<Person>(p2.GetPlayers());
+
 
             // Verrification de la liste de joueur de la
             // partie n°1 n'est pas egale a celle de la partie n°2
-            Assert.AreNotEqual(session.partieList[0].getPlayers(), session.partieList[1].getPlayers());
+            Assert.AreNotEqual(hashPlayersListP1, hashPlayersListP2);
 
         }
 

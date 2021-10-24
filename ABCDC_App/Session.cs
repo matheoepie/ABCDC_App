@@ -6,10 +6,10 @@ namespace ABCDC_App
 {
     public class Session
     {
-        public List<Person> playerList
+        public List<Person> PlayersList
         {
-            get { return _playerlist; }
-            set { _playerlist = value; }
+            get { return _playerslist; }
+            set { _playerslist = value; }
         }
 
         public DateTime Date
@@ -18,22 +18,28 @@ namespace ABCDC_App
             set { _date = value; }
         }
 
-        public List<Weapon> weaponsPlayerList
+        public List<Weapon> WeaponsPlayerList
         {
             get { return _weaponsPlayerList; }
             set { _weaponsPlayerList = value; }
         }
 
-        public List<Armor> armorsPlayerList
+        public List<Armor> ArmorsPlayerList
         {
             get { return _armorsPlayerList; }
             set { _armorsPlayerList = value; }
         }
 
+        public List<Partie> PartiesList
+        {
+            get { return _partiesList; }
+            set { _partiesList = value; }
+        }
 
 
 
-        private List<Person> _playerlist;
+
+        private List<Person> _playerslist;
 
         private DateTime _date;
 
@@ -41,7 +47,7 @@ namespace ABCDC_App
 
         private List<Armor> _armorsPlayerList;
 
-
+        private List<Partie> _partiesList;
 
 
 
