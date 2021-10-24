@@ -14,6 +14,8 @@ namespace ABCDC_Test
 
         public List<Armor> listArmorSession{ get; set; } = new List<Armor>();
 
+        public Session session;
+
 
         [SetUp]
         public void Setup()
@@ -21,7 +23,6 @@ namespace ABCDC_Test
             Person p = new Person();
             Weapon w = new Weapon();
             Armor a = new Armor();
-
 
             // GetListeExcel retourne la liste des personnes du fichier excel
             this.listJoueurSession = p.GetListeExcel();
@@ -33,13 +34,28 @@ namespace ABCDC_Test
             // GetArmorPlayerSession permet de
             // reccuperer toutes les armures des joueurs dans la session
             this.listArmorSession = a.GetArmorPlayerSession(this.listJoueurSession);
+
+
+
+
+            // Session
+            this.session = new Session()
+            {
+                WeaponsPlayerList = this.listWeaponSession,
+                ArmorsPlayerList = this.listArmorSession,
+                Date = DateTime.Now,
+                PlayersList = this.listJoueurSession,
+                PartiesList = new List<Partie>(),
+            };
+
+
+
         }
 
 
         [Test]
         public void tous_les_joueurs_de_la_session_sont_inscrit()
         {
-            Session session = new Session() { WeaponsPlayerList = this.listWeaponSession, ArmorsPlayerList = this.listArmorSession, Date = DateTime.Now, PlayersList = this.listJoueurSession };
 
             // Verrifier que les listes ne sont pas vide
             Assert.IsNotEmpty(session.ArmorsPlayerList);
@@ -58,15 +74,7 @@ namespace ABCDC_Test
         [Test]
         public void un_joueur_quitte_la_session_entre_deux_parties()
         {
-            // Creation de la session de jeu 
-            Session session = new Session() {
-                WeaponsPlayerList = this.listWeaponSession,
-                ArmorsPlayerList = this.listArmorSession,
-                Date = DateTime.Now,
-                PlayersList = this.listJoueurSession,
-                PartiesList = new List<Partie>(),
-            };
-
+            
             // Création d'une nouvelle partie
             Partie p1 = new Partie(session);
             session.PartiesList.Add(p1);
@@ -77,8 +85,7 @@ namespace ABCDC_Test
 
 
             // Suppréssion d'un joueur de la sessions
-            session.PlayersList.RemoveAll(x => x.LastName == "BLANC" && x.FirstName == "Louis");
-
+            session.removePlayer("Louis", "BLANC");
 
             // Création d'une seconde partie
             Partie p2 = new Partie(session);
@@ -95,5 +102,12 @@ namespace ABCDC_Test
 
         }
 
+
+        [Test]
+        public void joueur_quitte_et_rejoint_une_session_en_cours()
+        {
+        
+
+        }
     }
 }
