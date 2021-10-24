@@ -6,12 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="LinqToExcel" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="LinqToExcel" Version="1.11.0" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ABCDC_Lib\ABCDC_Lib.csproj" />
   </ItemGroup>
+
 </Project>

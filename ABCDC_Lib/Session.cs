@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ABCDC_App
+namespace ABCDC_Lib
 {
     public class Session
     {
