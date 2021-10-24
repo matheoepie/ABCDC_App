@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ABCDC_App\ABCDC_App.csproj" />
     <ProjectReference Include="..\ABCDC_Lib\ABCDC_Lib.csproj" />
+    <ProjectReference Include="..\ABCDC_App\ABCDC_App.csproj" />
   </ItemGroup>
 </Project>

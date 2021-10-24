@@ -67,5 +67,23 @@ namespace ABCDC_Lib
         {
 
         }
+
+        public List<Person> GetListeExcel()
+        {
+            List<Person> listAdherant = new List<Person>();
+
+            Person paul = new Person() { FirstName = "Paul", LastName = "GROS", Weight = 134, BeginYear = 2006, Weapon = "Hache 2M", Armor = "Mailles" };
+            Person louis = new Person() { FirstName = "Louis", LastName = "BLANC", Weight = 47, BeginYear = 2020, Weapon = "Dagues", Armor = "Mailles" };
+            Person jm = new Person() { FirstName = "Jean-Michel", LastName = "GIRAUD", Weight = 79, BeginYear = 1987, Weapon = "Sabre", Armor = "Plaques" };
+            Person theo = new Person() { FirstName = "Théophile", LastName = "PÂRIS", Weight = 102, BeginYear = 2003, Weapon = "Hallebarde", Armor = "Gambison" };
+
+            listAdherant.Add(paul);
+            listAdherant.Add(louis);
+            listAdherant.Add(jm);
+            listAdherant.Add(theo);
+
+            return listAdherant;
+        }
+
     }
 }
