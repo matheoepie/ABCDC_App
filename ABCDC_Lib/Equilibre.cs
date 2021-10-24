@@ -36,5 +36,15 @@ namespace ABCDC_Lib
 
             return (Equipe1, Equipe2);
         }
+
+        public void EquilibreEnPoids()
+        {
+
+        }
+
+        public void EquilibreEnAncienneté()
+        {
+
+        }
     }
 }

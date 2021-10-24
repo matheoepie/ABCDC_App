@@ -52,7 +52,9 @@ namespace ABCDC_Test
 
         public void Les_Equipes_Sont_Equilibrees_en_poids()
         {
+            bool equilibree = equilibre.EquilibreEnPoids(Equipe1, Equipe2);
 
+            Assert.AreEqual(equilibree, true);
         }
 
         public void Les_Equipes_Sont_Equilibrees_en_anciennete()
