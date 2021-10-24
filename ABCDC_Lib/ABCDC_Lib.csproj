@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ABCDC_App\ABCDC_App.csproj" />
+    <None Remove="LinqToExcel" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="LinqToExcel" Version="1.11.0" />
   </ItemGroup>
 </Project>

@@ -13,8 +13,7 @@ namespace ABCDC_App
             //création de la liste des participants
             List<Person> persons = new List<Person>();
 
-            //création de la liste des adhérents
-            List<Person> members = new List<Person>();
+            
 
             string option = "";
 
