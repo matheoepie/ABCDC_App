@@ -1,7 +1,8 @@
-﻿using System;
+﻿using ABCDC_Lib;
+using System;
 using System.Collections.Generic;
 
-namespace ABCDC_App
+namespace ABCDC_Lib
 {
     public class Weapon
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ABCDC_App
+namespace ABCDC_Lib
 {
     public class Armor
     {
