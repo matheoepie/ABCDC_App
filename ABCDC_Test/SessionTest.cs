@@ -1,14 +1,13 @@
-﻿using NUnit.Framework;
+﻿using System;
 using System.Collections.Generic;
 using ABCDC_App;
-using System.Linq;
+using NUnit.Framework;
 
 namespace ABCDC_Test
 {
-    public class ExcelTest
+    public class SessionTest
     {
-
-        // Liste d'adhérant 
+        // Liste d'adhérant a mettre dans la session de jeu 
         public List<Person> listAdherant { get; set; } = new List<Person>();
 
 
@@ -25,31 +24,6 @@ namespace ABCDC_Test
             this.listAdherant.Add(jm);
             this.listAdherant.Add(theo);
 
-        }
-
-
-        [Test]
-        public void liste_adherant_nest_pas_vide()
-        {
-            Assert.IsNotEmpty(this.listAdherant);
-        }
-
-
-        [Test]
-        public void premiere_et_derniere_personne_de_la_liste()
-        {
-            var premiere_position_de_liste_aderant = listAdherant.First().LastName;
-            var derniere_position_de_liste_aderant = listAdherant.Last().LastName;
-
-            string premier_nom_de_liste_aderant = "GROS";
-            string dernier_nom_de_liste_aderant = "PÂRIS";
-
-            Assert.AreEqual(premiere_position_de_liste_aderant, premier_nom_de_liste_aderant);
-            Assert.AreEqual(derniere_position_de_liste_aderant, dernier_nom_de_liste_aderant);
-        }
-
-
-
-
+        } 
     }
 }

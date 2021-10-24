@@ -6,7 +6,7 @@ namespace ABCDC_App
 {
     public class Session
     {
-        public string playerList
+        public List<Person> playerList
         {
             get { return _playerlist; }
             set { _playerlist = value; }
@@ -24,7 +24,7 @@ namespace ABCDC_App
             set { _armesDesJoueurs = value; }
         }
 
-        private string _playerlist;
+        private List<Person> _playerlist;
 
         private DateTime _date;
 
