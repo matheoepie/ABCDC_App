@@ -1,5 +1,4 @@
-﻿using ABCDC_App;
-using ABCDC_Lib;
+﻿using ABCDC_Lib;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;

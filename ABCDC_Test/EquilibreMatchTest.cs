@@ -42,16 +42,12 @@ namespace ABCDC_Test
         [Test]
         public void Les_Equipes_Sont_Equilibrees_en_nombre()
         {
-            //Vérifier que les listes ne sont pas vides
-            Assert.IsNotEmpty(Equipe1);
-            Assert.IsNotEmpty(Equipe2);
-
             (List<Person>, List<Person>) equipes = equilibre.EquilibreEnNombre(Participants);
 
             Equipe1 = equipes.Item1;
             Equipe2 = equipes.Item2;
 
-            Assert.AreEqual(Equipe1.Count, Equipe2.Count);
+            Assert.AreEqual(Equipe1.Count, Equipe2.Count, 1);
         }
 
         public void Les_Equipes_Sont_Equilibrees_en_poids()
