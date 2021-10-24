@@ -18,13 +18,13 @@ namespace ABCDC_App
             set { _date = value; }
         }
 
-        public List<String> weaponsPlayerList
+        public List<Weapon> weaponsPlayerList
         {
             get { return _weaponsPlayerList; }
             set { _weaponsPlayerList = value; }
         }
 
-        public List<String> armorsPlayerList
+        public List<Armor> armorsPlayerList
         {
             get { return _armorsPlayerList; }
             set { _armorsPlayerList = value; }
@@ -37,9 +37,9 @@ namespace ABCDC_App
 
         private DateTime _date;
 
-        private List<String> _weaponsPlayerList;
+        private List<Weapon> _weaponsPlayerList;
 
-        private List<String> _armorsPlayerList;
+        private List<Armor> _armorsPlayerList;
 
 
 

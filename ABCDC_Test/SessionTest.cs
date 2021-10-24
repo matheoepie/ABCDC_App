@@ -32,7 +32,7 @@ namespace ABCDC_Test
             // GetArmorPlayerSession permet de reccuperer toutes les armures des joueurs dans la session
             this.listArmorSession = a.GetArmorPlayerSession(this.listJoueurSession);
 
-
+            
         }
 
 
@@ -45,11 +45,14 @@ namespace ABCDC_Test
             Assert.IsNotEmpty(session.armorsPlayerList);
             Assert.IsNotEmpty(session.weaponsPlayerList);
             Assert.IsNotEmpty(session.playerList);
+
+            // Verrifier que la premiere arme est bien egale a la premiere ligne du tableau excel
+            Assert.AreEqual(session.weaponsPlayerList[0].Name, "Hache 2M");
+
+            // Verifier que la permiere armure est bien egale a la premiere ligne du tableau excel
+            Assert.AreEqual(session.armorsPlayerList[0].Name, "Mailles");
+
         }
-
-
-
-
 
     }
 }
