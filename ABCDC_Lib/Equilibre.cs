@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ABCDC_Lib
@@ -42,60 +43,81 @@ namespace ABCDC_Lib
             double moyennePoidsEquipe1 = 0;
             double moyennePoidsEquipe2 = 0;
 
-            int nbDeParticipants = 0;
+            int nbDeParticipantsEquipe1 = Equipe1.Count;
+            int nbDeParticipantsEquipe2 = Equipe2.Count;
+
+            int nbDeParticipants = nbDeParticipantsEquipe1 + nbDeParticipantsEquipe2;
 
             //récupération du poids de chaque équipe
             foreach (Person person in Equipe1)
             {
                 moyennePoidsEquipe1 += person.Weight;
-                nbDeParticipants++;
             }
             foreach (Person person in Equipe2)
             {
                 moyennePoidsEquipe2 += person.Weight;
-                nbDeParticipants++;
             }
 
             bool equilibre = false;
-            bool accepte = false;
+            //bool accepte = false;
 
-            while ((equilibre == false) || (accepte = false))
-            {
-                if ((moyennePoidsEquipe1 >= 52 && moyennePoidsEquipe1 <= 56 && moyennePoidsEquipe2 >= 52 && moyennePoidsEquipe2 <= 56)
+            if ((moyennePoidsEquipe1 >= 52 && moyennePoidsEquipe1 <= 56 && moyennePoidsEquipe2 >= 52 && moyennePoidsEquipe2 <= 56)
                 || (moyennePoidsEquipe1 >= 57 && moyennePoidsEquipe1 <= 62 && moyennePoidsEquipe2 >= 57 && moyennePoidsEquipe2 <= 62)
                 || (moyennePoidsEquipe1 >= 63 && moyennePoidsEquipe1 <= 68 && moyennePoidsEquipe2 >= 63 && moyennePoidsEquipe2 <= 68)
                 || (moyennePoidsEquipe1 >= 69 && moyennePoidsEquipe1 <= 74 && moyennePoidsEquipe2 >= 69 && moyennePoidsEquipe2 <= 74)
                 || (moyennePoidsEquipe1 >= 75 && moyennePoidsEquipe1 <= 80 && moyennePoidsEquipe2 >= 75 && moyennePoidsEquipe2 <= 80)
                 || (moyennePoidsEquipe1 >= 81 && moyennePoidsEquipe1 <= 90 && moyennePoidsEquipe2 >= 81 && moyennePoidsEquipe2 <= 90)
                 || (moyennePoidsEquipe1 >= 91 && moyennePoidsEquipe2 >= 91))
-                {
-                    //OK -- sortir
-                    equilibre = true;
-                }
-                else
-                {
-                    //KO -- equilibration des équipes
+            {
+                //OK -- sortir
+                equilibre = true;
+            }
+            else
+            {
+                //KO -- equilibration des équipes
 
+
+                //boucle pour déplacer les participants
+                int cpt = 0;
+                while (equilibre == false || cpt != nbDeParticipants - 1)
+                {
                     //tri des deux équipes en fonction du poids
-                    Equipe1.Sort(); 
-                    Equipe2.Sort();
+                    Equipe1.OrderByDescending(o => o.Weight).ToList();
+                    Equipe2.OrderByDescending(o => o.Weight).ToList();
 
-                    //boucle pour déplacer les participants
-                    for (int cpt = 1; cpt <= nbDeParticipants; cpt++)
+                    if (moyennePoidsEquipe1 > moyennePoidsEquipe2)
                     {
-                        if (moyennePoidsEquipe1 > moyennePoidsEquipe2)
-                        {
+                        //déplace le premier de l'équipe1 vers l'équipe2
+                        Equipe2.Add(Equipe1[cpt]);
+                        Equipe1.Remove(Equipe1[cpt]);
 
-                        }
-                        else
-                        {
+                        //déplace le dernier de l'équipe2 vers l'équipe1
+                        Equipe1.Add(Equipe2[nbDeParticipantsEquipe2 - 1]);
+                        Equipe2.Remove(Equipe2[nbDeParticipantsEquipe2 - 1]);
+                    }
+                    else
+                    {
+                        //déplace le dernier de l'équipe1 vers l'équipe2
+                        Equipe2.Add(Equipe1[nbDeParticipantsEquipe1 - 1]);
+                        Equipe1.Remove(Equipe1[nbDeParticipantsEquipe1 - 1]);
 
-                        }
+                        //déplace le premier de l'équipe2 vers l'équipe1
+                        Equipe1.Add(Equipe2[cpt]);
+                        Equipe2.Remove(Equipe2[cpt]);
                     }
 
+                    if ((moyennePoidsEquipe1 >= 52 && moyennePoidsEquipe1 <= 56 && moyennePoidsEquipe2 >= 52 && moyennePoidsEquipe2 <= 56)
+                    || (moyennePoidsEquipe1 >= 57 && moyennePoidsEquipe1 <= 62 && moyennePoidsEquipe2 >= 57 && moyennePoidsEquipe2 <= 62)
+                    || (moyennePoidsEquipe1 >= 63 && moyennePoidsEquipe1 <= 68 && moyennePoidsEquipe2 >= 63 && moyennePoidsEquipe2 <= 68)
+                    || (moyennePoidsEquipe1 >= 69 && moyennePoidsEquipe1 <= 74 && moyennePoidsEquipe2 >= 69 && moyennePoidsEquipe2 <= 74)
+                    || (moyennePoidsEquipe1 >= 75 && moyennePoidsEquipe1 <= 80 && moyennePoidsEquipe2 >= 75 && moyennePoidsEquipe2 <= 80)
+                    || (moyennePoidsEquipe1 >= 81 && moyennePoidsEquipe1 <= 90 && moyennePoidsEquipe2 >= 81 && moyennePoidsEquipe2 <= 90)
+                    || (moyennePoidsEquipe1 >= 91 && moyennePoidsEquipe2 >= 91))
+                    {
+                        equilibre = true;
+                    }
 
-                    //pas equilibré mais on accepte ?
-                    accepte = true;
+                    cpt++;
                 }
             }
 
