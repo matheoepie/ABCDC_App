@@ -23,7 +23,7 @@ namespace ABCDC_Lib
 
                 Console.WriteLine("\n\nBienvenu:\n");
                 Console.WriteLine("    1- Gestion des participants");
-                Console.WriteLine("    2- Gestion des adéhrants");
+                Console.WriteLine("    2- Gestion des adhérants");
                 Console.WriteLine("    3- Créer des équipes pour le prochain match");
                 Console.WriteLine("    4- Quitter");
 
@@ -126,7 +126,7 @@ namespace ABCDC_Lib
         }
         public static List<Person> AddUser(List<Person> persons, Person p)
         {
-/*
+
             persons.Add(p);
 
             Console.Clear();
@@ -138,7 +138,7 @@ namespace ABCDC_Lib
             Console.WriteLine("     " + p.Weapon);
 
             Console.Write("\n\n\nAppuyer sur <Enter> pour retourner au menu... ");
-            while (Console.ReadKey().Key != ConsoleKey.Enter) { }*/
+            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
             return persons;
         }
 
