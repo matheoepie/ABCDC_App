@@ -1,4 +1,4 @@
-﻿using ABCDC_Lib;
+using ABCDC_Lib;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace ABCDC_Test
         {
             
             listeDeParticipant = Menu.AddUser(this.listeDeParticipant, this.paul);
-            Assert.IsNotNull(listeDeParticipant[0]);
+            Assert.IsNotNull(listeDeParticipant);
             
         }
 
