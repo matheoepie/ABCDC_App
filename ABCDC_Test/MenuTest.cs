@@ -1,4 +1,3 @@
-﻿
 using ABCDC_Lib;
 using NUnit.Framework;
 using System;
