@@ -48,6 +48,8 @@ namespace ABCDC_Lib
 
             int nbDeParticipants = nbDeParticipantsEquipe1 + nbDeParticipantsEquipe2;
 
+            bool equilibre = false;
+
             //récupération du poids de chaque équipe
             foreach (Person person in Equipe1)
             {
@@ -58,8 +60,6 @@ namespace ABCDC_Lib
                 moyennePoidsEquipe2 += person.Weight;
             }
 
-            bool equilibre = false;
-            //bool accepte = false;
 
             if ((moyennePoidsEquipe1 >= 52 && moyennePoidsEquipe1 <= 56 && moyennePoidsEquipe2 >= 52 && moyennePoidsEquipe2 <= 56)
                 || (moyennePoidsEquipe1 >= 57 && moyennePoidsEquipe1 <= 62 && moyennePoidsEquipe2 >= 57 && moyennePoidsEquipe2 <= 62)
@@ -87,21 +87,21 @@ namespace ABCDC_Lib
 
                     if (moyennePoidsEquipe1 > moyennePoidsEquipe2)
                     {
-                        //déplace le premier de l'équipe1 vers l'équipe2
+                        //déplace le plus lourd de l'équipe1 vers l'équipe2
                         Equipe2.Add(Equipe1[cpt]);
                         Equipe1.Remove(Equipe1[cpt]);
 
-                        //déplace le dernier de l'équipe2 vers l'équipe1
+                        //déplace le moins lourd de l'équipe2 vers l'équipe1
                         Equipe1.Add(Equipe2[nbDeParticipantsEquipe2 - 1]);
                         Equipe2.Remove(Equipe2[nbDeParticipantsEquipe2 - 1]);
                     }
                     else
                     {
-                        //déplace le dernier de l'équipe1 vers l'équipe2
+                        //déplace le moins lourd de l'équipe1 vers l'équipe2
                         Equipe2.Add(Equipe1[nbDeParticipantsEquipe1 - 1]);
                         Equipe1.Remove(Equipe1[nbDeParticipantsEquipe1 - 1]);
 
-                        //déplace le premier de l'équipe2 vers l'équipe1
+                        //déplace le plus lourd de l'équipe2 vers l'équipe1
                         Equipe1.Add(Equipe2[cpt]);
                         Equipe2.Remove(Equipe2[cpt]);
                     }

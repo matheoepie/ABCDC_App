@@ -50,6 +50,7 @@ namespace ABCDC_Test
             Assert.AreEqual(Equipe1.Count, Equipe2.Count, 1);
         }
 
+        [Test]
         public void Les_Equipes_Sont_Equilibrees_en_poids()
         {
             bool equilibree = equilibre.EquilibreEnPoids(Equipe1, Equipe2);
